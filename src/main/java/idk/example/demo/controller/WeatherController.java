@@ -30,6 +30,8 @@ public WeatherResponse getWheather(@RequestParam String city){
     return wService.getWeather(city);
 }
 
+//spring
+
 @GetMapping("/monthly")
 public MonthlyWeatherResponse gMonthlyWeatherResponse(@RequestParam String city, @RequestParam int month ){
     return wService.getMonthlyData(city, month);
