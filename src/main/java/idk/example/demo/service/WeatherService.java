@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import idk.example.demo.dto.MonthlyWeatherResponse;
-import idk.example.demo.dto.WeatherResponse;
+import idk.example.demo.dto.weatherDtos.MonthlyWeatherResponse;
+import idk.example.demo.dto.weatherDtos.WeatherResponse;
 
 @Service
 public class WeatherService {

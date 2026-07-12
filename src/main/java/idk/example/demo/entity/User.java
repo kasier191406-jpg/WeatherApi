@@ -1,5 +1,7 @@
 package idk.example.demo.entity;
 
+import java.util.List;
+
 import idk.example.demo.enums.Role;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,6 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -23,7 +26,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotBlank
     @Column(unique = true)
@@ -41,6 +44,8 @@ public class User {
     private Role role;
 
     
+    @OneToMany(mappedBy = "user")
+    private List<UserHistory> history;
 
 
 }

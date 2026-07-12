@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import idk.example.demo.dto.MonthlyWeatherResponse;
-import idk.example.demo.dto.WeatherResponse;
+import idk.example.demo.dto.weatherDtos.MonthlyWeatherResponse;
+import idk.example.demo.dto.weatherDtos.WeatherResponse;
 import idk.example.demo.service.WeatherService;
 
 @RestController
@@ -30,7 +30,7 @@ public WeatherResponse getWheather(@RequestParam String city){
     return wService.getWeather(city);
 }
 
-//spring
+
 
 @GetMapping("/monthly")
 public MonthlyWeatherResponse gMonthlyWeatherResponse(@RequestParam String city, @RequestParam int month ){

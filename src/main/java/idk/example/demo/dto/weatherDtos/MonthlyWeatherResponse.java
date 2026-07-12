@@ -1,4 +1,4 @@
-package idk.example.demo.dto;
+package idk.example.demo.dto.weatherDtos;
 
 import java.util.List;
 

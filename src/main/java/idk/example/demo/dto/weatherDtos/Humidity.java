@@ -1,6 +1,4 @@
-package idk.example.demo.dto;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package idk.example.demo.dto.weatherDtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,16 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cloud {
-    @JsonProperty("all")
-    private int cloudCoverage;
+public class Humidity {
 
-    
     private double min;
     private double max;
 
     private double median;
     private double mean;
-
 
 }
