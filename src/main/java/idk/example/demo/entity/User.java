@@ -50,6 +50,6 @@ public class User {
     @JsonIgnore
     private List<UserHistory> history;
 
-   private int a;
+   
 
 }
