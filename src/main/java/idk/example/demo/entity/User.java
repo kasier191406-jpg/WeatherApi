@@ -2,6 +2,8 @@ package idk.example.demo.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import idk.example.demo.enums.Role;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -45,6 +47,7 @@ public class User {
 
     
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<UserHistory> history;
 
 

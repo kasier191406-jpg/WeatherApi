@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import idk.example.demo.dto.weatherDtos.HistoryDto;
 import idk.example.demo.entity.User;
 import idk.example.demo.entity.UserHistory;
 import idk.example.demo.repo.HistoryRepo;
@@ -33,7 +34,7 @@ public class HistoryService {
         hRepo.save(uHistory);
     }
 
-public List<UserHistory> getRecentHistory() {
+public List<HistoryDto> getRecentHistory() {
      String username = SecurityContextHolder.getContext()
         .getAuthentication()
         .getName();
@@ -41,7 +42,15 @@ public List<UserHistory> getRecentHistory() {
 User user = userRepo.findByUsername(username)
         .orElseThrow();
 
-    return hRepo.findTop10ByUserOrderBySearchedAtDesc(user);
+        List<UserHistory> history =
+            hRepo.findTop10ByUserOrderBySearchedAtDesc(user);
+
+    return history.stream()
+            .map(h -> new HistoryDto(
+                    h.getCity(),
+                    h.getSearchedAt()
+            ))
+            .toList();
 }
 
 }

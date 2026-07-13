@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import idk.example.demo.dto.weatherDtos.HistoryDto;
 import idk.example.demo.dto.weatherDtos.MonthlyWeatherResponse;
 import idk.example.demo.dto.weatherDtos.WeatherResponse;
 import idk.example.demo.entity.User;
@@ -46,7 +47,7 @@ public MonthlyWeatherResponse gMonthlyWeatherResponse(@RequestParam String city,
 
 
 @GetMapping("/history")
-public List<UserHistory> history(){
+public List<HistoryDto> history(){
    return historyService.getRecentHistory();
 }
 

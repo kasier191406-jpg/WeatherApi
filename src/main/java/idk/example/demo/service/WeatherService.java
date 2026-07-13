@@ -13,24 +13,26 @@ import idk.example.demo.dto.weatherDtos.MonthlyWeatherResponse;
 import idk.example.demo.dto.weatherDtos.WeatherResponse;
 import idk.example.demo.entity.User;
 import idk.example.demo.entity.UserHistory;
+import idk.example.demo.repo.HistoryRepo;
 import idk.example.demo.repo.UserRepo;
 
 @Service
 public class WeatherService {
 
-    @Autowired
-    UserRepo userRepo;
+  
+   private final UserRepo userRepo;
 
     private final HistoryService historyService;
     private final RestClient restClient;
-    private final UserHistory uHistory;
+    private final HistoryRepo hRepo;
     @Value("${weather.api.key}")
     private String apiKey;
 
-    public WeatherService(RestClient restClient,UserHistory uHistory, HistoryService historyService){
+    public WeatherService(UserRepo userRepo,RestClient restClient,HistoryRepo hRepo, HistoryService historyService){
             this.restClient=restClient;
-            this.uHistory=uHistory;
+            this.hRepo=hRepo;
             this.historyService = historyService;
+            this.userRepo=userRepo;
     }
 
 
