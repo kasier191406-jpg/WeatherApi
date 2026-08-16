@@ -1,25 +1,24 @@
 # Secure Weather API
 
-
-A Spring Boot REST API for retrieving weather information, with user authentication and secure access to protected endpoints.
-
+A secure RESTful Weather API built with Spring Boot. The application provides weather information, user authentication with JWT, weather history, and monthly weather data.
 
 ## Features
 
-
-- User registration and login
+- User registration
+- User login
 - JWT-based authentication
-- Spring Security integration
-- RESTful API endpoints
-- Weather API integration
-- MySQL database integration
-- JPA / Hibernate
+- Spring Security
+- Protected weather endpoints
+- Current weather information
+- Temperature lookup
+- Monthly weather data
+- Weather history
+- MySQL database
+- Spring Data JPA / Hibernate
 - Request validation
-- Maven-based project
-
+- RESTful API design
 
 ## Tech Stack
-
 
 - Java
 - Spring Boot
@@ -29,128 +28,19 @@ A Spring Boot REST API for retrieving weather information, with user authenticat
 - Hibernate
 - MySQL
 - Maven
+- Lombok
 - REST API
-
 
 ## Project Structure
 
-
 ```text
-src/
-├── main/
-│   ├── java/
-│   │   └── idk/example/demo/
-│   │       ├── controller/
-│   │       ├── service/
-│   │       ├── repository/
-│   │       ├── entity/
-│   │       └── security/
-│   │
-│   └── resources/
-│       └── application.properties
-│
-└── test/
-Authentication
+src/main/java/idk/example/demo/
 
-The API uses Spring Security with JWT-based authentication.
-
-The general authentication flow is:
-
-User
- ↓
-Register / Login
- ↓
-Authentication
- ↓
-JWT Token
- ↓
-Authenticated Request
- ↓
-Protected API Endpoint
-
-Clients must provide the JWT token when accessing protected endpoints.
-
-API
-Authentication
-POST /auth/register
-POST /auth/login
-Weather
-GET /weather/{city}
-
-The weather endpoint retrieves weather information for the requested city.
-
-Example Authentication Request
-POST /auth/login
-Content-Type: application/json
-
-Example request body:
-
-{
-  "username": "your_username",
-  "password": "your_password"
-}
-
-The login endpoint returns an authentication token which can be used for protected requests.
-
-Configuration
-
-Before running the application, configure your local database and weather API credentials.
-
-Do not commit real API keys or passwords to the repository.
-
-Example:
-
-weather.api.key=${WEATHER_API_KEY}
-
-Set the WEATHER_API_KEY environment variable on your machine before running the application.
-
-Database
-
-The application uses MySQL for persistent data storage and Spring Data JPA / Hibernate for database interaction.
-
-Configure your local MySQL connection in application.properties.
-
-Running Locally
-1. Clone the repository
-git clone https://github.com/kasier191406-jpg/WeatherApi.git
-2. Enter the project directory
-cd WeatherApi
-3. Configure the application
-
-Set up your MySQL database and provide the required environment variables.
-
-4. Run the application
-
-Using Maven Wrapper:
-
-./mvnw spring-boot:run
-
-On Windows:
-
-mvnw.cmd spring-boot:run
-Testing
-
-The project contains a test structure under:
-
-src/test/java
-
-Run the tests with:
-
-./mvnw test
-
-On Windows:
-
-mvnw.cmd test
-Future Improvements
-Role-based authorization
-Global exception handling
-More comprehensive unit and integration tests
-API documentation with Swagger / OpenAPI
-Docker support
-Deployment to a cloud platform
-Author
-
-Kasier
-
-GitHub:
-https://github.com/kasier191406-jpg
+├── Configuration/
+├── controller/
+├── dto/
+├── entity/
+├── enums/
+├── repo/
+├── security/
+└── service/
